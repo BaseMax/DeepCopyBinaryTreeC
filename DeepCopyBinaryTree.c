@@ -53,47 +53,15 @@ struct node *copyBinaryTreeRecursive(struct node *root)
  */
 struct node *copyBinaryTree(struct node *root)
 {
-    if (root == NULL)
-        return NULL;
-    struct node *newRoot = newNode(root->data);
-    struct node *current = root;
-    struct node *newCurrent = newRoot;
-    struct node *parent = NULL;
-    struct node *newParent = NULL;
-    while (current != NULL)
-    {
-        if (current->left != NULL)
-        {
-            newCurrent->left = newNode(current->left->data);
-            parent = current;
-            current = current->left;
-            newParent = newCurrent;
-            newCurrent = newCurrent->left;
-        }
-        else if (current->right != NULL)
-        {
-            newCurrent->right = newNode(current->right->data);
-            parent = current;
-            current = current->right;
-            newParent = newCurrent;
-            newCurrent = newCurrent->right;
-        }
-        else
-        {
-            current = parent;
-            newCurrent = newParent;
-            parent = NULL;
-            newParent = NULL;
-        }
-    }
-    return newRoot;
+    
 }
 
 void printBinaryTree(struct node *root)
 {
-    if (root == NULL)
-        return;
+    if (root == NULL) return;
+
     printf("%d ", root->data);
+
     printBinaryTree(root->left);
     printBinaryTree(root->right);
 }
@@ -108,16 +76,18 @@ int main(int argc, char** argv)
     root->left->right = newNode(5);
     root->right->left = newNode(6);
 
-    // Copy the binary tree
-    struct node *newRoot = copyBinaryTree(root);
-
     // Print the binary tree
     printf("Original binary tree: ");
     printBinaryTree(root);
+    printf("\n");
+
+    // Copy the binary tree
+    struct node *newRoot = copyBinaryTree(root);
 
     // Print the copied binary tree
     printf("Copied binary tree: ");
     printBinaryTree(newRoot);
+    printf("\n");
 
     // Copy the binary tree with recursive algorithm
     struct node *newRootRecursive = copyBinaryTreeRecursive(root);
@@ -125,6 +95,7 @@ int main(int argc, char** argv)
     // Print the copied binary tree with recursive algorithm
     printf("Copied binary tree with recursive algorithm: ");
     printBinaryTree(newRootRecursive);
+    printf("\n");
 
     return 0;
 }
