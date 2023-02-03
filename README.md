@@ -1,4 +1,4 @@
-# DeepCopyBinaryTreeC
+# Deep-Copy Binary Tree in C
 
 A C program to deep copy a binary tree. Deep copy means that any changes made to the new binary tree don't affect the original binary tree. Both recursive and iterative algorithms are implemented. The iterative algorithm a few lines of code and uses a variable to keep track of the current node. The recursive algorithm is a bit more complicated but it's easier to understand.
 
