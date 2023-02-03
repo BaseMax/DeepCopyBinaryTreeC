@@ -88,3 +88,43 @@ struct node *copyBinaryTree(struct node *root)
     }
     return newRoot;
 }
+
+void printBinaryTree(struct node *root)
+{
+    if (root == NULL)
+        return;
+    printf("%d ", root->data);
+    printBinaryTree(root->left);
+    printBinaryTree(root->right);
+}
+
+int main(int argc, char** argv)
+{
+    // Create a binary tree
+    struct node *root = newNode(1);
+    root->left = newNode(2);
+    root->right = newNode(3);
+    root->left->left = newNode(4);
+    root->left->right = newNode(5);
+    root->right->left = newNode(6);
+
+    // Copy the binary tree
+    struct node *newRoot = copyBinaryTree(root);
+
+    // Print the binary tree
+    printf("Original binary tree: ");
+    printBinaryTree(root);
+
+    // Print the copied binary tree
+    printf("Copied binary tree: ");
+    printBinaryTree(newRoot);
+
+    // Copy the binary tree with recursive algorithm
+    struct node *newRootRecursive = copyBinaryTreeRecursive(root);
+
+    // Print the copied binary tree with recursive algorithm
+    printf("Copied binary tree with recursive algorithm: ");
+    printBinaryTree(newRootRecursive);
+
+    return 0;
+}

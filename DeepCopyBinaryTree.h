@@ -16,3 +16,21 @@ struct node
  * @return struct node* 
  */
 struct node *newNode(int data);
+
+/**
+ * @brief Copy a binary tree (recursively)
+ * 
+ * @param root
+ * 
+ * @return struct node* 
+ */
+struct node *copyBinaryTreeRecursive(struct node *root);
+
+/**
+ * @brief Copy a binary tree (non-recursively)
+ * 
+ * @param root
+ * 
+ * @return struct node* 
+ */
+struct node *copyBinaryTree(struct node *root);
